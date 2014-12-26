@@ -1,0 +1,63 @@
+<script src="lib/easeljs-0.8.0.min.js"></script>
+<script type="text/javascript" src="btns.js"></script>
+<script src="phonegap.js"></script>
+<style>
+    #demoCanvas {
+      margin: auto;
+    }
+    body
+    {
+      margin:0;
+      overflow:hidden;
+    }
+    </style>
+<body onload="init();">
+  <canvas id="demoCanvas"></canvas>
+</body>
+<script>
+    canvas = document.getElementById('demoCanvas');
+ 
+    // Set canvas dimensions
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+   var cw = canvas.width;
+   var ch = canvas.height;
+   var wii = canvas.width;
+   var dim = Math.min(cw,ch)-3*30;
+   console.log(dim/3);
+
+function init() {
+   // createjs.Touch.enable(stage);
+    var stage = new createjs.Stage("demoCanvas");
+    var circle = new createjs.Shape();
+
+    for (var j = 0; j < 3; j++) {
+      for (var i = 0; i < 3; i++) {
+          var btn1 = stage.addChild(new Button("_", "#CC9966", dim/3));
+          btn1.x = i*(dim/3+20)+(cw-dim-50)/2;
+          btn1.y = j*(dim/3+20)+(ch-dim-100)/2+50;
+          btn1.xx = i;
+          btn1.yy = j;
+          //btn1.txt.text="H";
+      }
+    };
+
+    
+    
+    
+    /*circle.graphics.beginFill("DeepSkyBlue").drawRect(0,0,cw/10,cw/10);
+    circle.x = cw/2-cw/20;
+    circle.y = ch/2-cw/20;
+    circle.addEventListener("click", function(event) { alert("clicked"); })
+    stage.addChild(circle);
+
+    var trees = new createjs.Bitmap("assets/x.png");
+    stage.addChild(trees);*/
+
+    
+    stage.update();
+
+   
+  }
+
+</script>
